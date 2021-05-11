@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>UTS AI</title>
+<!--===============================================================================================-->
+	<meta charset="UTF-8">
+<!--===============================================================================================-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<!--===============================================================================================-->
+	<style type="text/css">
+		body{
+  				background-size: cover;
+  				height: 100vh;
+			}
+	</style>
+</head>
+
+<body>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+<!--=========================================================================================================================-->
+			{% if result == 0 %}
+			<center><p style="font-family: OpenSans-Regular">{{ message }}</p></center>  <br><br>
+			<div class="alert alert-danger" role="alert">
+                <center><b>Kalimat/Berita/Cerita ini Negative &nbsp;<img src="https://img.icons8.com/flat_round/30/000000/thumbs-down--v1.png"/></b>
+                </center>
+            </div>
+            <hr>
+            <center><a href="/"><button type="button" class="btn btn-success">Kembali Halaman Sebelumnya</button></a></center>
+<!--=========================================================================================================================-->
+			{% elif result == 1 %}
+			<center><p style="font-family: OpenSans-Regular">{{ message }}</p></center>  <br><br>
+			<div class="alert alert-success" role="alert">
+                <center><b>Kalimat/Berita/Cerita ini Positive &nbsp;<img src="https://img.icons8.com/ios-filled/30/000000/facebook-like.png"/></b>
+                </center>
+            </div>
+            <hr>
+            <center><a href="/"><button type="button" class="btn btn-success">Kembali Halaman Sebelumnya </button></a></center>
+<!--=========================================================================================================================-->
+			{% else %}
+			<form class="contact100-form validate-form flex-sb flex-w" name="input" action="/result" method="POST">
+				<span class="contact100-form-title">
+					Tulis Kalimat/Berita/Cerita
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<textarea class="input100" name="message" placeholder="Silahkan Tulis Disini Menggunakan Bahasa Inggris contoh: puja so cute" required="complesary"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Prediksi 
+					</button>
+				</div>
+			</form>	
+<!--=========================================================================================================================-->
+			{% endif %}
+</div>
+</div>
+
+  <!-- Site footer -->
+    <footer class="site-footer">         
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p>Siti Nurhayati Puja Kesuma || 1184004
+            </p>
+          </div>
+        </div>
+      </div>
+</footer>
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<!--===============================================================================================-->
+</body>
+
+</html>
